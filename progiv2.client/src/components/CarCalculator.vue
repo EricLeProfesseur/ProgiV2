@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import { reactive, watch, ref, computed } from 'vue';
+    import { reactive, ref, computed } from 'vue';
     
     interface priceDetails {
         price: number,
@@ -22,9 +22,7 @@
             return returnInfo.value?.price + returnInfo.value?.baseFee + returnInfo.value.specialFee + returnInfo.value.associationFee + returnInfo.value.storageFee;
     })
 
-    watch(carInfo, () => {
-        fetchData();
-    })
+
 
     const fetchData = () => {
         if (carInfo.price != null) {
@@ -57,6 +55,7 @@
           <option value="ord" selected>Ordinaire</option>
           <option value="luxe">De luxe</option>
       </select>
+          <button id="calculateBtn" @click="fetchData">Calculer</button>
       </div>
       <div>
 
@@ -104,9 +103,16 @@
     }
     input {
         width : 5rem;
-        
+        padding: .2rem;
+    }
+    select{
+        padding: .2rem;
     }
     .inputSection{
         margin-bottom : 1rem;
+    }
+    #calculateBtn{
+        padding: .2rem;
+        margin-left : .5rem;
     }
 </style>

@@ -1,44 +1,51 @@
 <script setup lang="ts">
-
     import CarCalculator from './components/CarCalculator.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-  </header>
-
-  <main>
-    <CarCalculator />
-  </main>
+    <header>
+        <div class="logo">
+            <img src="./assets/logo.svg" width="100%" height="100%" />
+        </div>
+    </header>
+    <main>
+        <CarCalculator />
+    </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
+    header {
+        line-height: 1.5;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 3rem;
+    }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+    .logo {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        border-radius: 10px;
+        width: 100%;
+        max-width: 400px;
+    }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+        .logo:hover {
+            animation : pulse ease-in-out 2s;
+            
+        }
 
-  .logo {
-    margin: 0 2rem 0 0;
-    background-color : white;
-  }
+    @keyframes pulse {
+        from {
+            transform: scale3d(1, 1, 1);
+        }
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
+        50% {
+            transform: scale3d(1.05, 1.05, 1.05);
+        }
+
+        to {
+            transform: scale3d(1, 1, 1);
+        }
+    }
 </style>
