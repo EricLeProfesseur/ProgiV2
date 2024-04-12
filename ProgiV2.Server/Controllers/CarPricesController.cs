@@ -19,7 +19,7 @@ namespace ProgiV2.Server.Controllers
         [HttpPost(Name = "carprices")]
         public CarPrices Post()
         {
-            CarInfo carInfo = null;
+            CarInfo? carInfo = null;
             using (var reader = new StreamReader(HttpContext.Request.Body))
             {
                 // lecture du body de la requête recue
