@@ -22,7 +22,9 @@
             return returnInfo.value?.price + returnInfo.value?.baseFee + returnInfo.value.specialFee + returnInfo.value.associationFee + returnInfo.value.storageFee;
     })
 
-
+    const calculateEnabled = computed(() => {
+        return carInfo.price != 0 && carInfo.price != null;
+    })
 
     const fetchData = () => {
         if (carInfo.price != null) {
@@ -55,7 +57,7 @@
           <option value="ord" selected>Ordinaire</option>
           <option value="luxe">De luxe</option>
       </select>
-          <button id="calculateBtn" @click="fetchData">Calculer</button>
+          <button id="calculateBtn" @click="fetchData" :disabled=!calculateEnabled>Calculer</button>
       </div>
       <div>
 
