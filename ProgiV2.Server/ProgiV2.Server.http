@@ -1,0 +1,9 @@
+@ProgiV2.Server_HostAddress = http://localhost:5111
+
+GET {{ProgiV2.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+POST {{ProgiV2.Server_HostAddress}}/CarPrices/
+Accept: application/json
+
+###
